@@ -1,0 +1,15 @@
+<div class="row">
+  <% @flights.each do | flight | %>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= flight.name %></h5>
+          <h6 class="card-title"><b>From: </b> <%= flight.origin %></h6>
+          <h6 class="card-title"><b>To:</b>  <%= flight.destination %></h6>
+          <h6 class="card-title"><b>Total Seats:</b>  <%= flight.seats %></h6>
+          <a href="<%= flight_book_bookings_path(total_seats: flight.seats, flight_number: flight.id) %>" class="btn btn-primary">Book Flight</a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

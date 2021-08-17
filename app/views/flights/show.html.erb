@@ -1,0 +1,18 @@
+<h1>Booked Flights</h1>
+<table border=1>
+<tr>
+	<th>Origin</th>
+	<th>Destination</th>
+	<th>Seats</th>
+	<th>PNR_Number</th>
+</tr>
+
+  <tr>
+	  <td><%=@flight.origin%></td>
+	  <td><%=@flight.destination%></td>
+	  <td><%=@flight.seats%></td>
+	  <td><%=@flight.pnr_number%></td>
+  </tr>
+</table>
+
+<%= link_to 'Back',root_path%>

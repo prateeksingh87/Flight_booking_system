@@ -1,0 +1,17 @@
+<% @flight_seatings.each do | flight_seat | %>  
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= flight_seat.name %></h5>
+          <% @total_seats = Array.new(flight_seat.seats.to_i, 0) %>
+          <% @total_seats.each do | seat |  %>
+            <%= link_to new_booking_path(flight: params[:flight_number]) do %>
+              <i class='fas fa-chair'></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

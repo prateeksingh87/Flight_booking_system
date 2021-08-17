@@ -1,0 +1,7 @@
+Name:  <%= @booking.name %></br>
+Age:  <%= @booking.age %></br>
+Seat:  <%= @booking.seat %></br>
+Class: <%= @booking.seat_class %></br>
+PNR_ Number <%= @booking.pnr_number %></br>
+Total_amount <%= @booking.total_amount %></br>
+<%= link_to 'Upgrade' ,edit_booking_path(@booking) %>

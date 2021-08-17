@@ -1,0 +1,8 @@
+development:
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: flight_booking
+  pool: 5
+  username: postgres
+  password: 12345678
