@@ -1,8 +1,19 @@
-development:
-  host: localhost
+default: &default
   adapter: postgresql
-  encoding: unicode
-  database: flight_booking
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
   username: postgres
   password: 12345678
+  host: localhost
+
+development:
+  <<: *default
+  database: flight_booking
+
+test:
+  <<: *default
+  database: flight_booking
+
+production:
+  <<: *default
+  database: flight_booking
