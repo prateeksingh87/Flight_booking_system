@@ -16,7 +16,9 @@ class BookingsController < ApplicationController
 		@booking = @flight.bookings.new(booking_params)
 		seat_class = Seating.find(params[:booking]['seat_class']).name
 		@booking.seat_class = seat_class
+		@remaining_seats = (@flight.seats - params[:booking]['seat'].to_i)
 		if @booking.save
+			@flight.update(seats: @remaining_seats)
 			redirect_to booking_path(@booking.id)
     end
   end
