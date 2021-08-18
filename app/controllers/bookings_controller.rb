@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
 	before_action :get_flight, only: [:new,:create]
+	before_action :get_booking, only: [:edit , :update]
 
 	def flight_book
 		@flight_seatings = Flight.find(params[:flight_number]).seatings
@@ -21,8 +22,13 @@ class BookingsController < ApplicationController
   end
 
   def edit
-  	@booking = Booking.find(params[:id])
   	@classes = @booking.flight.seatings
+  end
+
+  def update
+  	seat_class = Seating.find(params[:booking]['seat_class']).name
+  	@booking.update(name: params[:booking]['name'], age: params[:booking]['age'], seat: params[:booking]['seat'],seat_class: seat_class)
+  	redirect_to booking_path(@booking.id)
   end
 
   def show
@@ -33,6 +39,11 @@ class BookingsController < ApplicationController
 
 	def booking_params
 		params.require(:booking).permit(:name,:age,:seat)
+	end
+
+	def get_booking
+		@booking = Booking.find(params[:id])
+		
 	end
 
 	def get_flight
