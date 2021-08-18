@@ -42,7 +42,8 @@
 							<%=f.label 'seat_class'%>
 						</div>
 					  <div class="col-sm-8">
-							<%=f.text_field :seat_class, class: "form-control"%>
+							<%= f.collection_select :seat_class, @classes, :id, :name %>
+
 						</div>
 					</div>
 				</div>
