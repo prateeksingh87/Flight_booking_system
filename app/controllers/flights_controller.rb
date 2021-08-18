@@ -13,6 +13,10 @@ class FlightsController < ApplicationController
 		@flight = Flight.create(flight_params)
 		redirect_to flight_path(id: @flight.id)
   end
+
+  def book_flight
+  	
+  end
  
   def show
   	@flight = Flight.find(params[:id])

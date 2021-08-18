@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   after_create :set_pnr_number 
-  after_create :create_total 
+  after_commit :create_total 
   belongs_to :flight
 
   def set_pnr_number
